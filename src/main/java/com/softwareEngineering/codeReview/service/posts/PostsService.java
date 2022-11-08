@@ -5,7 +5,9 @@ import com.softwareEngineering.codeReview.domain.posts.dto.PostsResponseDto;
 import com.softwareEngineering.codeReview.domain.posts.dto.PostsSaveRequestDto;
 import com.softwareEngineering.codeReview.domain.posts.dto.PostsUpdateRequestDto;
 import com.softwareEngineering.codeReview.domain.posts.Posts;
+import com.softwareEngineering.codeReview.domain.user.User;
 import com.softwareEngineering.codeReview.repository.PostsRepository;
+import com.softwareEngineering.codeReview.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,13 +21,16 @@ import java.util.stream.Collectors;
 public class PostsService {
 
     private final PostsRepository postsRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public int updateView(Long id){
         return postsRepository.updateView(id);
     }
     @Transactional
-    public Long save(PostsSaveRequestDto requestDto){
+    public Long save(PostsSaveRequestDto requestDto, String name){
+        User user = userRepository.findByName(name);
+        requestDto.setUser(user);
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 
