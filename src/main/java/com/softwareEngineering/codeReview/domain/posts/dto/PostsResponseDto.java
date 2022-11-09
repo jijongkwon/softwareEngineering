@@ -15,10 +15,9 @@ public class PostsResponseDto {
     private String title;
     private String content;
     private String author;
-//    private Long user_id;
+    private Long user_id;
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
-    private Long user_id;
     private List<CommentResponseDto> comments;
 
     public PostsResponseDto(Posts posts){
