@@ -36,8 +36,13 @@ public class IndexController {
     }
 
     @GetMapping("/posts/read/{id}")
-    public String postRead(@PathVariable Long id, Model model){
+    public String postRead(@PathVariable Long id, @LoginUser SessionUser user, Model model){
         PostsResponseDto dto = postsService.findById(id);
+
+        /* 게시글 작성자 본인인지 확인 */
+        if(dto.getUser_id().equals(user.getId())){
+            model.addAttribute("author", true);
+        }
         postsService.updateView(id);
         model.addAttribute("posts",dto);
 
