@@ -1,44 +1,38 @@
 {{>layout/header}}
-<h1>스프링 부트로 시작하는 웹 서비스 Ver.2</h1>
-<div class="col-md-12">
-    <div class="row">
-        <div class="col-md-6">
-            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-            {{#googleUser}}
-                Logged in as: <span>{{googleUser}}</span>
-                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-            {{/googleUser}}
-            {{^googleUser}}
-                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
-            {{/googleUser}}
-
-
-        </div>
+<!--점보트론 + 글 작성 버튼-->
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in
+            previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your
+            liking.</p>
+        <a href="/posts/save" role="button" class="btn btn-secondary">글 작성</a>
     </div>
-    <br>
-    <!-- 목록 출력 영역 -->
-    <table class="table table-horizontal table-bordered">
-        <thead class="thead-strong">
-        <tr>
-            <th>게시글번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>최종수정일</th>
-            <th>조회수</th>
-        </tr>
-        </thead>
-        <tbody id="tbody">
-        {{#posts}}
-            <tr>
-                <td>{{id}}</td>
-                <td><a href="/posts/read/{{id}}">{{title}}</a></td>
-                <td>{{author}}</td>
-                <td>{{modifiedDate}}</td>
-                <td>{{view}}</td>
-            </tr>
-        {{/posts}}
-        </tbody>
-    </table>
 </div>
+<br>
+<!--새로만든 테이블 양식-->
+<table class="table">
+    <thead>
+    <tr class="table-dark">
+        <th scope="col">#</th>
+        <th scope="col">제목</th>
+        <th scope="col">작성자</th>
+        <th scope="col">최종수정일</th>
+        <th scope="col">조회수</th>
+    </tr>
+    </thead>
+    <tbody class="table=light" id="tbody">
+    {{#posts}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td><a href="/posts/read/{{id}}">{{title}}</a></td>
+            <td>{{author}}</td>
+            <td>{{modifiedDate}}</td>
+            <td>{{view}}</td>
+        </tr>
+    {{/posts}}
+    </tbody>
+</table>
+</div>
+
 {{>layout/footer}}
