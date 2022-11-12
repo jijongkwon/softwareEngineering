@@ -20,6 +20,10 @@ var main = {
             content: $('#content').val()
         };
 
+        if (title == "" || author == "" || content="") {
+            alert('공백을 입력해주세요');
+        }
+
         $.ajax({
             type: 'POST',
             url: '/api/v1/posts',
