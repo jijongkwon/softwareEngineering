@@ -22,6 +22,7 @@ var main = {
 
         if (title == "" || author == "" || content="") {
             alert('공백을 입력해주세요');
+            return;
         }
 
         $.ajax({
