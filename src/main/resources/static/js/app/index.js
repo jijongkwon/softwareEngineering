@@ -20,8 +20,9 @@ var main = {
             content: $('#content').val()
         };
 
-        if (title == "" || author == "" || content="") {
+        if (data.title == "" || data.author == "" || data.content=="") {
             alert('공백을 입력해주세요');
+            return;
         }
 
         $.ajax({
