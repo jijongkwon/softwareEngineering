@@ -18,9 +18,12 @@ var main = {
             title: $('#title').val(),
             author: $('#author').val(),
             content: $('#content').val()
+            modifiedDate: $('#modifiedDate').val()
         };
 
-        if (title == "" || author == "" || content="") {
+        var.modifiedDate = var.modifiedDate.substring(0, 10);
+
+        if (var.title == "" || var.author == "" || var.content="") {
             alert('공백을 입력해주세요');
             return;
         }
