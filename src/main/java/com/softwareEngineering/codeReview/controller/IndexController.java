@@ -27,15 +27,14 @@ public class IndexController {
 
         if(user != null){
             System.out.println(user.getName());
-            model.addAttribute("googleUser", user.getName());
+            model.addAttribute("user_name", user.getName());
         }
         return "index";
     }
 
     @GetMapping("/posts/save")
     public String postsSave(Model model, @LoginUser SessionUser user){
-        String name = user.getName();
-        model.addAttribute("user_name", name);
+        model.addAttribute("user_name", user.getName());
         return "posts-save";
     }
 
@@ -50,7 +49,7 @@ public class IndexController {
         }
 
         if(user != null){
-            model.addAttribute("user", user);
+            model.addAttribute("user_name", user.getName());
 
             /* 게시글 작성자 본인인지 확인 */
             if(dto.getUser_id().equals(user.getId())){
@@ -71,10 +70,10 @@ public class IndexController {
     }
 
     @GetMapping("/posts/update/{id}")
-    public String postsUpdate(@PathVariable Long id, Model model){
+    public String postsUpdate(@PathVariable Long id, Model model, @LoginUser SessionUser user){
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("posts", dto);
-
+        model.addAttribute("user_name", user.getName());
         return "posts-update";
     }
 

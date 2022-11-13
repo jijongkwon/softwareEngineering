@@ -87,13 +87,13 @@
             </a>
 
             <!--google login-->
-            {{#googleUser}}
-                <div style="color:white">Logged in as: <span>{{googleUser}}</span></div>
+            {{#user_name}}
+                <div style="color:white">Logged in as: <span>{{user_name}}</span></div>
                 <a href="/logout" class="btn btn-secondary active" role="button">Logout</a>
-            {{/googleUser}}
-            {{^googleUser}}
+            {{/user_name}}
+            {{^user_name}}
                 <a href="/oauth2/authorization/google" class="btn btn-secondary active" role="button">Login</a>
-            {{/googleUser}}
+            {{/user_name}}
         </div>
         </div>
     </div>
