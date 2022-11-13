@@ -12,7 +12,7 @@ public class CommentResponseDto {
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
     private String name;
-    private Long post_id;
+    private Long posts_id;
 
     public CommentResponseDto(Comments comment){
         this.id = comment.getId();
@@ -20,6 +20,6 @@ public class CommentResponseDto {
         this.createdDate = comment.getCreatedDate();
         this.modifiedDate = comment.getModifiedDate();
         this.name = comment.getUser().getName();
-        this.post_id = comment.getPosts().getId();
+        this.posts_id = comment.getPosts().getId();
     }
 }
