@@ -3,14 +3,15 @@ package com.softwareEngineering.codeReview.domain.comments.dto;
 import com.softwareEngineering.codeReview.domain.comments.Comments;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 @Getter
 public class CommentResponseDto {
 
     private Long id;
     private String comment;
-    private LocalDateTime createdDate;
-    private LocalDateTime modifiedDate;
+    private LocalDate createdDate;
+    private LocalDate modifiedDate;
     private String name;
     private Long posts_id;
 

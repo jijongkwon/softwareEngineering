@@ -4,6 +4,7 @@ import com.softwareEngineering.codeReview.domain.comments.dto.CommentResponseDto
 import com.softwareEngineering.codeReview.domain.posts.Posts;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,8 +16,8 @@ public class PostsResponseDto {
     private String title;
     private String content;
     private String author;
-    private LocalDateTime createdDate;
-    private LocalDateTime modifiedDate;
+    private LocalDate createdDate;
+    private LocalDate modifiedDate;
     private Long user_id;
     private List<CommentResponseDto> comments;
 

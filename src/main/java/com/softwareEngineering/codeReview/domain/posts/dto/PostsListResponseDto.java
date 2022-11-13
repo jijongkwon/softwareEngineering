@@ -3,6 +3,7 @@ package com.softwareEngineering.codeReview.domain.posts.dto;
 import com.softwareEngineering.codeReview.domain.posts.Posts;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -12,7 +13,7 @@ public class PostsListResponseDto {
     private String title;
     private String author;
     private int view;
-    private LocalDateTime modifiedDate;
+    private LocalDate modifiedDate;
 
     public PostsListResponseDto(Posts entity){
         this.id = entity.getId();
