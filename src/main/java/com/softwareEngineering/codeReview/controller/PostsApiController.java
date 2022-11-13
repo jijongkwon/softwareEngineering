@@ -16,17 +16,10 @@ import org.springframework.web.bind.annotation.*;
 public class PostsApiController {
 
     private final PostsService postsService;
-    private final CommentService commentService;
 
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto, @LoginUser SessionUser user){
         return postsService.save(requestDto, user.getName());
-    }
-
-    @PostMapping("/api/v1/comments/{id}")
-    public Long commentSave(@PathVariable Long id, @RequestBody CommentRequestDto dto,
-                            @LoginUser SessionUser user){
-        return commentService.save(user.getName(),id,dto);
     }
 
     @PutMapping("/api/v1/posts/{id}")
