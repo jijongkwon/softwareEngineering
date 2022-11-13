@@ -4,6 +4,11 @@
         <form id="input_form" style="margin: 25px 25px 25px 25px;">
             <br>
             <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">번호</span>
+                <input type="text" class="form-control" id="id" value="{{posts.id}}" readonly
+                       aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">제목</span>
                 <input type="text" class="form-control" id="title" value="{{posts.title}}" readonly
                        aria-label="Username" aria-describedby="basic-addon1">
@@ -21,6 +26,6 @@
             <!-- <input> -->
         </form>
         <a href="/" role="button" class="btn btn-secondary" style="margin-left: 25px;">메인 페이지</a>
-        <a href="/posts/update/{{posts.id}}" role="button" class="btn btn-primary">글 수정</a>
+        <a href="/posts/update/{{posts.id}}" role="button" class="btn btn-primary">글 관리</a>
 
 {{>layout/footer}}
