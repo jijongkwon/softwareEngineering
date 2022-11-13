@@ -15,7 +15,6 @@ public class PostsResponseDto {
     private String title;
     private String content;
     private String author;
-//    private Long user_id;
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
     private Long user_id;
@@ -29,7 +28,7 @@ public class PostsResponseDto {
         this.createdDate = posts.getCreatedDate();
         this.modifiedDate = posts.getModifiedDate();
         this.user_id = posts.getUser().getId();
-        this.comments = posts.getComments().stream().map(CommentResponseDto::new).collect(Collectors.toList());
         //stream 람다식으로 내부 반복 사용
+        this.comments = posts.getComments().stream().map(CommentResponseDto::new).collect(Collectors.toList());
     }
 }

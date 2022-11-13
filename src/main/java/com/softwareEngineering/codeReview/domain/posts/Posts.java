@@ -1,7 +1,7 @@
 package com.softwareEngineering.codeReview.domain.posts;
 
 import com.softwareEngineering.codeReview.domain.BaseTimeEntity;
-import com.softwareEngineering.codeReview.domain.comments.Comment;
+import com.softwareEngineering.codeReview.domain.comments.Comments;
 import com.softwareEngineering.codeReview.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,7 +34,7 @@ public class Posts extends BaseTimeEntity {
     //FetchType.EAGER 데이터 로딩시 같이 로딩
     @OneToMany(mappedBy = "posts", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @OrderBy("id asc")
-    private List<Comment> comments;
+    private List<Comments> comments;
 
     @Column(columnDefinition = "integer default 0", nullable = false)
     private int view;
