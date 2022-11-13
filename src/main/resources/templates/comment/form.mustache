@@ -1,0 +1,16 @@
+<div class="card" style="margin: 25px 25px 25px 25px;">
+    <div class="card-header bi bi-chat-right-dots"> Write a Comment</div>
+    {{! 댓글작성 부분}}
+    <form>
+        <input type="hidden" id="posts_id" value="{{posts.id}}">
+        {{#author}}
+            <div class="card-body">
+                <textarea id="comment" class="form-control" rows="4" placeholder="댓글을 입력하세요"></textarea>
+            </div>
+            <div class="card-footer">
+                <button type="button" id="btn-comment-save" class="btn btn-outline-primary bi bi-pencil-square">
+                    등록</button>
+            </div>
+        {{/author}}
+    </form>
+</div>
