@@ -1,31 +1,33 @@
 {{>layout/header}}
 
-<h1>게시글 수정</h1>
 
-<div class="col-md-12">
-    <div class="col-md-4">
-        <form>
-            <div class="form-group">
-                <label for="title">글 번호</label>
-                <input type="text" class="form-control" id="id" value="{{posts.id}}" readonly>
-            </div>
-            <div class="form-group">
-                <label for="title">제목</label>
-                <input type="text" class="form-control" id="title" value="{{posts.title}}">
-            </div>
-            <div class="form-group">
-                <label for="author"> 작성자 </label>
-                <input type="text" class="form-control" id="author" value="{{posts.author}}" readonly>
-            </div>
-            <div class="form-group">
-                <label for="content"> 내용 </label>
-                <textarea class="form-control" id="content">{{posts.content}}</textarea>
-            </div>
-        </form>
-        <a href="/" role="button" class="btn btn-secondary">취소</a>
-        <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
-        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+<form style="margin: 25px 25px 25px 25px;">
+    <br>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">번호</span>
+        <input type="text" class="form-control" id="id" value="{{posts.id}}" readonly aria-label="Username"
+               aria-describedby="basic-addon1">
     </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">제목</span>
+        <input type="text" class="form-control" id="title" value="{{posts.title}}" aria-label="Username"
+               aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">작자</span>
+        <input type="text" class="form-control" placeholder="공백 시 작성 불가" id="author" value="{{posts.author}}"
+               readonly aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group" style="min-height: 22em;">
+        <span class="input-group-text">본문</span>
+        <textarea class="form-control" id="content" aria-label="With textarea">{{posts.content}}</textarea>
+    </div>
+</form>
+<a href="/" role="button" class="btn btn-secondary" style="margin-left: 25px;">취소</a>
+<button type="button" class="btn btn-primary" id="btn-update">수정</button>
+<button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
 </div>
+</div>
+
 
 {{>layout/footer}}
