@@ -1,0 +1,23 @@
+{{! Comments }}
+<div class="card" style="margin: 25px 25px 25px 25px;">
+    <div class="card-header bi bi-chat-dots">{{#comments.size}}{{comments.size}}{{/comments.size}} Comments
+    </div>
+    {{! 댓글내용 부분 }}
+    <ul class="list-group-item" style="margin: 5px 5px 5px 5px;">
+        {{#comments}}
+            <li class="list-group-item">
+                <div class="card" style="margin: 30px 10px 30px 10px;">
+                    <div class="card-header bi bi-chat-dots">
+                        <span style="font-size: small">{{name}}</span>
+                        <span style="font-size: xx-small">{{createdDate}}</span>&nbsp;
+                        <button class="badge bi bi-pencil-square"
+                                style="color: #fff; background-color: #0d6efd; border-color: #0d6efd;"> 수정</button>
+                        <button class="badge bi bi-trash"
+                                style="color: #fff; background-color: #dc3545; border-color: #dc3545;"> 삭제</button>
+                    </div>
+                    <textarea class="form-control" readonly>{{comment}}</textarea>
+                </div>
+            </li>
+        {{/comments}}
+    </ul>
+</div>
