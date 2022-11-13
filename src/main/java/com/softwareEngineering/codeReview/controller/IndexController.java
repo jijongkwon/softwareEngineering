@@ -2,6 +2,7 @@ package com.softwareEngineering.codeReview.controller;
 
 import com.softwareEngineering.codeReview.config.auth.LoginUser;
 import com.softwareEngineering.codeReview.config.auth.dto.SessionUser;
+import com.softwareEngineering.codeReview.domain.comments.dto.CommentResponseDto;
 import com.softwareEngineering.codeReview.domain.posts.dto.PostsResponseDto;
 import com.softwareEngineering.codeReview.service.posts.PostsService;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -38,6 +40,12 @@ public class IndexController {
     @GetMapping("/posts/read/{id}")
     public String postRead(@PathVariable Long id, @LoginUser SessionUser user, Model model){
         PostsResponseDto dto = postsService.findById(id);
+        List<CommentResponseDto> comments = dto.getComments();
+
+        /* 댓글 관련 */
+        if(comments != null && !comments.isEmpty()){
+            model.addAttribute("comments", comments);
+        }
 
         /* 게시글 작성자 본인인지 확인 */
         if(dto.getUser_id().equals(user.getId())){
