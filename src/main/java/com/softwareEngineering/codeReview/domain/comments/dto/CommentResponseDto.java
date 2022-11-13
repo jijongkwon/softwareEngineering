@@ -1,6 +1,7 @@
 package com.softwareEngineering.codeReview.domain.comments.dto;
 
 import com.softwareEngineering.codeReview.domain.comments.Comments;
+import com.softwareEngineering.codeReview.domain.user.User;
 import lombok.Getter;
 
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ public class CommentResponseDto {
     private LocalDate modifiedDate;
     private String name;
     private Long posts_id;
+    private Long user_id;
 
     public CommentResponseDto(Comments comment){
         this.id = comment.getId();
@@ -22,5 +24,6 @@ public class CommentResponseDto {
         this.modifiedDate = comment.getModifiedDate();
         this.name = comment.getUser().getName();
         this.posts_id = comment.getPosts().getId();
+        this.user_id = comment.getUser().getId();
     }
 }

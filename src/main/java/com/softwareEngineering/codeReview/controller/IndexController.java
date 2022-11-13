@@ -49,10 +49,21 @@ public class IndexController {
             model.addAttribute("comments", comments);
         }
 
-        /* 게시글 작성자 본인인지 확인 */
-        if(dto.getUser_id().equals(user.getId())){
-            model.addAttribute("author", true);
+        if(user != null){
+            model.addAttribute("user", user);
+
+            /* 게시글 작성자 본인인지 확인 */
+            if(dto.getUser_id().equals(user.getId())){
+                model.addAttribute("author", true);
+            }
+
+            /* 댓글 작성자 본인인지 확인 */
+            for (int i = 0; i < comments.size(); i++){
+                boolean isAuthor = comments.get(i).getUser_id().equals(user.getId());
+                model.addAttribute("isAuthor", isAuthor);
+            }
         }
+
         postsService.updateView(id);
         model.addAttribute("posts",dto);
 
