@@ -1,31 +1,39 @@
 {{>layout/header}}
 
-        <!--입력 폼-->
-        <form id="input_form" style="margin: 25px 25px 25px 25px;">
-            <br>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">번호</span>
-                <input type="text" class="form-control" id="id" value="{{posts.id}}" readonly
-                       aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">제목</span>
-                <input type="text" class="form-control" id="title" value="{{posts.title}}" readonly
-                       aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">작자</span>
-                <input type="text" class="form-control" placeholder="공백 시 작성 불가" id="author" value="{{posts.author}}"
-                       readonly aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group" style="min-height: 22em;">
-                <span class="input-group-text">본문</span>
-                <textarea class="form-control" id="content" readonly
-                          aria-label="With textarea">{{posts.content}}</textarea>
-            </div>
-            <!-- <input> -->
-        </form>
-        <a href="/" role="button" class="btn btn-secondary" style="margin-left: 25px;">메인 페이지</a>
-        <a href="/posts/update/{{posts.id}}" role="button" class="btn btn-primary">글 관리</a>
+<!--입력 폼-->
+<form id="input_form" style="margin: 25px 25px 20px 25px;">
+    <br>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">번호</span>
+        <input type="text" class="form-control" id="id" value="{{posts.id}}" readonly
+               aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">제목</span>
+        <input type="text" class="form-control" id="title" value="{{posts.title}}" readonly
+               aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">작자</span>
+        <input type="text" class="form-control" placeholder="공백 시 작성 불가" id="author" value="{{posts.author}}"
+               readonly aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group" style="min-height: 15em;">
+        <span class="input-group-text">본문</span>
+        <textarea class="form-control" id="content" readonly
+                  aria-label="With textarea">{{posts.content}}</textarea>
+    </div>
+    <!-- <input> -->
+</form>
+
+<a href="/" role="button" class="btn btn-secondary" style="margin-left: 25px;">메인 페이지</a>
+{{#author}}
+    <a href="/posts/update/{{id}}" role="button" class="btn btn-primary">수정</a>
+    <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+{{/author}}
+
+{{! Comments }}
+{{>comment/list}}
+{{>comment/form}}
 
 {{>layout/footer}}
