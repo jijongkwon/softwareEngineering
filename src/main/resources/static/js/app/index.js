@@ -33,8 +33,8 @@ var main = {
             content: $('#content').val(),
         };
 
-        if (data.title == "" || data.author == "" || data.content=="") {
-            alert('공백을 입력해주세요');
+        if (data.title == "" || data.content=="") {
+            alert('제목/내용을 입력해주세요');
             return;
         }
 
