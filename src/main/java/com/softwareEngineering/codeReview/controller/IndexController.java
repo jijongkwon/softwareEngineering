@@ -3,9 +3,14 @@ package com.softwareEngineering.codeReview.controller;
 import com.softwareEngineering.codeReview.config.auth.LoginUser;
 import com.softwareEngineering.codeReview.config.auth.dto.SessionUser;
 import com.softwareEngineering.codeReview.domain.comments.dto.CommentResponseDto;
+import com.softwareEngineering.codeReview.domain.posts.Posts;
 import com.softwareEngineering.codeReview.domain.posts.dto.PostsResponseDto;
 import com.softwareEngineering.codeReview.service.posts.PostsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,8 +27,17 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model, @LoginUser SessionUser user) {
-        model.addAttribute("posts", postsService.findAllDesc());
+    public String index(Model model, @LoginUser SessionUser user,
+                        @PageableDefault(sort = "id", direction = Sort.Direction.DESC)
+                        Pageable pageable) {
+        Page<Posts> posts = postsService.findAllDesc(pageable);
+
+        model.addAttribute("posts", posts);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next", pageable.next().getPageNumber());
+        model.addAttribute("hasNext", posts.hasNext());
+        model.addAttribute("hasPrev", posts.hasPrevious());
+
 
         if(user != null){
             model.addAttribute("user_name", user.getName());

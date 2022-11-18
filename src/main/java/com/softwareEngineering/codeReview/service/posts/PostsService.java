@@ -9,6 +9,8 @@ import com.softwareEngineering.codeReview.domain.user.User;
 import com.softwareEngineering.codeReview.repository.PostsRepository;
 import com.softwareEngineering.codeReview.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,10 +51,8 @@ public class PostsService {
     }
 
     @Transactional(readOnly = true)
-    public List<PostsListResponseDto> findAllDesc(){
-        return postsRepository.findAllDesc().stream()
-                .map(PostsListResponseDto::new)
-                .collect(Collectors.toList());
+    public Page<Posts> findAllDesc(Pageable pageable){
+        return postsRepository.findAll(pageable);
     }
 
     @Transactional
