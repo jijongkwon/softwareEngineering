@@ -1,7 +1,7 @@
 {{>layout/header}}
 
 <!--입력 폼-->
-<form id="input_form" style="margin: 25px 25px 20px 25px;">
+<form id="input_form" style="margin: 25px 130px 20px 130px;">
     <br>
     <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">번호</span>
@@ -25,12 +25,16 @@
     </div>
     <!-- <input> -->
 </form>
-
-<a href="/" role="button" class="btn btn-secondary" style="margin-left: 25px;">메인 페이지</a>
-{{#author}}
-    <a href="/posts/update/{{id}}" role="button" class="btn btn-primary">수정</a>
-    <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
-{{/author}}
+<div style="margin-bottom: 80px;">
+    <a href="/" role="button" class="btn btn-secondary" style="margin-right: 130px; float: right;">메인 페이지</a>
+    {{#author}}
+        <button type="button" class="btn btn-danger" id="btn-delete" style="margin-right: 3px; float: right;">삭제
+        </button>
+        <a href="/posts/update/{{id}}" role="button" class="btn btn-primary"
+           style="margin-right: 3px; float: right;">수정</a>
+    {{/author}}
+</div>
+<br>
 
 {{! Comments }}
 {{>comment/list}}
