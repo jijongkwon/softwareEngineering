@@ -26,7 +26,6 @@ public class IndexController {
         model.addAttribute("posts", postsService.findAllDesc());
 
         if(user != null){
-            System.out.println(user.getName());
             model.addAttribute("user_name", user.getName());
         }
         return "index";
@@ -34,7 +33,9 @@ public class IndexController {
 
     @GetMapping("/posts/save")
     public String postsSave(Model model, @LoginUser SessionUser user){
-        model.addAttribute("user_name", user.getName());
+        if(user != null){
+            model.addAttribute("user_name", user.getName());
+        }
         return "posts-save";
     }
 
@@ -73,7 +74,9 @@ public class IndexController {
     public String postsUpdate(@PathVariable Long id, Model model, @LoginUser SessionUser user){
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("posts", dto);
-        model.addAttribute("user_name", user.getName());
+        if(user != null){
+            model.addAttribute("user_name", user.getName());
+        }
         return "posts-update";
     }
 
