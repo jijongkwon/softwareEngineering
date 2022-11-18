@@ -13,12 +13,14 @@ changwon university team project
 ---
 
 ## 🛠️ skill
+<p>
 <img src="https://img.shields.io/badge/mustache-FF9E0F?style=for-the-badge&logo=mustache&logoColor=white">
 <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+<br>
 <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
 <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">
-
+</p>
 
 ## 📜 기능목록
 
