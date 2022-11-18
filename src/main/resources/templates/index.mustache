@@ -2,14 +2,16 @@
 <!--점보트론 + 글 작성 버튼-->
 <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5" style="margin-left: 85px; width: 90rem;">
-        <h1 class="display-5 fw-bold">Code Review</h1>
-        <p class="col-md-8 fs-4">Share your code, Review together</p>
+        <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in
+            previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your
+            liking.</p>
         <a href="/posts/save" role="button" class="btn btn-secondary">글 작성</a>
     </div>
 </div>
 <br>
 <!--새로만든 테이블 양식-->
-<table class="table table-hover table-striped" style="margin: 0px 0px 0px 130px; width: 82rem;">
+<table class="table table-hover table-striped" style="margin: 0px 0px 0px 130px;  width: 82rem;">
     <thead>
     <tr class="table-dark">
         <th scope="col">#</th>
@@ -31,23 +33,6 @@
     {{/posts}}
     </tbody>
 </table>
-</div>
-
-{{! Page }}
-<div class="pagination justify-content-center">
-    {{#hasPrev}}
-        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill"></a>
-    {{/hasPrev}}
-    {{^hasPrev}}
-        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled"></a>
-    {{/hasPrev}}
-
-    {{#hasNext}}
-        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill"></a>
-    {{/hasNext}}
-    {{^hasNext}}
-        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill disabled"></a>
-    {{/hasNext}}
 </div>
 
 {{>layout/footer}}
