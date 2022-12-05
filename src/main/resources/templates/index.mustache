@@ -1,7 +1,7 @@
 {{>layout/header}}
 <!--점보트론 + 글 작성 버튼-->
 <div class="p-5 mb-4 bg-light rounded-3">
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" style="margin-left: 85px; width: 90rem;">
         <h1 class="display-5 fw-bold">Code Review</h1>
         <p class="col-md-8 fs-4">Share your code, Review together</p>
         <a href="/posts/save" role="button" class="btn btn-secondary">글 작성</a>
@@ -9,7 +9,7 @@
 </div>
 <br>
 <!--새로만든 테이블 양식-->
-<table class="table table-hover table-striped" style="margin: 0px 50px 0px 50px; width: 90rem;">
+<table class="table table-hover table-striped" style="width: 82.5%; margin: 0px 0px 0px 130px;">
     <thead>
     <tr class="table-dark">
         <th scope="col">#</th>
@@ -34,19 +34,19 @@
 </div>
 
 {{! Page }}
-<div class="pagination justify-content-center">
+<div class="pagination justify-content-center" style="margin: 25px 50px 25px 0px;">
     {{#hasPrev}}
-        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill"></a>
+        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill" style="margin: 0px 25px 25px 25px;"></a>
     {{/hasPrev}}
     {{^hasPrev}}
-        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled"></a>
+        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled" style="margin: 0px 25px 25px 25px;"></a>
     {{/hasPrev}}
 
     {{#hasNext}}
-        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill"></a>
+        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill" style="margin: 0px 25px 25px 25px;"></a>
     {{/hasNext}}
     {{^hasNext}}
-        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill disabled"></a>
+        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill disabled" style="margin: 0px 25px 25px 25px;"></a>
     {{/hasNext}}
 </div>
 
