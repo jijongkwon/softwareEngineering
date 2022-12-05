@@ -34,19 +34,19 @@
 </div>
 
 {{! Page }}
-<div class="pagination justify-content-center">
+<div class="pagination justify-content-center" style="margin: 25px 50px 25px 0px;">
     {{#hasPrev}}
-        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill"></a>
+        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill" style="margin: 0px 25px 25px 25px;"></a>
     {{/hasPrev}}
     {{^hasPrev}}
-        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled"></a>
+        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled" style="margin: 0px 25px 25px 25px;"></a>
     {{/hasPrev}}
 
     {{#hasNext}}
-        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill"></a>
+        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill" style="margin: 0px 25px 25px 25px;"></a>
     {{/hasNext}}
     {{^hasNext}}
-        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill disabled"></a>
+        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill disabled" style="margin: 0px 25px 25px 25px;"></a>
     {{/hasNext}}
 </div>
 
