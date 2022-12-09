@@ -2,7 +2,11 @@ var main = {
     init : function () {
         var _this = this;
         $('#btn-save').on('click', function () {
-            _this.save();
+            if ($('#btn-login').html() == 'Login') {
+                alert('로그인을 진행 해 주세요');
+            } else {
+                _this.save();
+            }
         });
 
         $('#btn-update').on('click', function () {
