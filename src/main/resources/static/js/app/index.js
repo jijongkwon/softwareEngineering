@@ -24,6 +24,15 @@ var main = {
                 _this.commentUpdate(form); // 해당 form으로 업데이트 수행
             });
         });
+
+        $('#btn-write').on('click', function () {
+            if($('#btn-login').html() == 'Login') {
+                alert('로그인이 필요합니다.');
+                window.location.href = '/';
+            }else{
+                window.location.href = '/posts/save';
+            }
+        })
     },
 
     save : function () {
